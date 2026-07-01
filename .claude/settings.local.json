@@ -8,7 +8,14 @@
       "Bash(node admin/render.js)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git config *)",
+      "Bash(node -e ' *)",
+      "Bash(node --check admin/setup.js)",
+      "Bash(node --check admin/public/editor.js)",
+      "Bash(node --check admin/views.js)",
+      "Bash(cd \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\" && rm -f uploads/*.png && ls uploads/)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
