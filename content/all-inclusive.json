@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "All-Inclusive Resorts | We Love Adventure Travels",
+    "description": "Plan your perfect all-inclusive resort vacation with Victoria Smith — Mexico, the Caribbean, and beyond. Get expert advice and exclusive deals."
+  },
+  "pageHero": {
+    "sub": "Relax. Everything's Included.",
+    "title": "ALL-INCLUSIVE",
+    "description": "From Cancun to the Dominican Republic, Victoria finds the resort that actually matches what you're looking for — not just the one with the best photos.",
+    "backgroundImage": "https://i.imgur.com/kEGAHVR.jpg"
+  },
+  "section1": {
+    "eyebrow": "Mexico & The Caribbean",
+    "eyebrowColor": "green",
+    "heading": "Where Victoria Sends Her Clients",
+    "image": "https://i.imgur.com/zwSo6Ul.jpg",
+    "paragraphs": [
+      "The Riviera Maya is the most popular all-inclusive destination Victoria books — and for good reason. The beaches are beautiful, the resorts are world-class, and direct flights from most U.S. cities keep it accessible.",
+      "Her favorite destinations include Cancun, Playa del Carmen, Punta Cana, Jamaica, St. Lucia, and Aruba. Each has a distinct feel, and the right choice depends on your group size, budget, and what kind of trip you actually want.",
+      "Victoria has stayed at or thoroughly researched the resorts she recommends. She's not just reading descriptions — she knows which resorts are great for families, which are adult-only, and which are worth the premium room upgrade."
+    ],
+    "ctaText": "Ask Victoria for a Recommendation",
+    "ctaColor": "green"
+  },
+  "included": {
+    "eyebrow": "Know Before You Go",
+    "heading": "What \"All-Inclusive\" Actually Means",
+    "sub": "Not all all-inclusives are the same. Victoria helps you understand exactly what's covered before you commit.",
+    "columns": [
+      { "title": "Usually Included", "color": "orange", "items": ["All meals at main buffet & select à la carte restaurants", "Domestic bar drinks throughout the day", "Non-motorized water sports (kayaks, paddleboards)", "Entertainment & nightly shows", "Pools, beach access, fitness center", "Kids club (family resorts)"] },
+      { "title": "Sometimes Extra", "color": "blue", "items": ["Premium spirits & wine list", "Specialty restaurants (steak, sushi, etc.)", "Motorized water sports & scuba", "Spa treatments", "Golf", "Airport transfers"] },
+      { "title": "What Victoria Watches For", "color": "green", "items": ["Resort fees hidden in the total price", "Buffet-only resorts disguised as premium", "Beach quality vs. pool quality", "Reviews that don't match the photos", "Seasonal differences in crowds & weather", "Travel insurance requirements"] }
+    ]
+  },
+  "brands": {
+    "eyebrow": "Brands Victoria Books",
+    "heading": "Resort Collections She Knows Well",
+    "list": ["Sandals & Beaches", "Excellence Collection", "Secrets & Dreams", "Iberostar", "Palace Resorts", "Hard Rock Hotels", "Hyatt Zilara & Ziva", "Club Med"]
+  },
+  "ctaBanner": {
+    "eyebrow": "Free Resort Matching",
+    "heading": "Tell Victoria What You Want. She'll Find the Right Resort.",
+    "paragraph": "Family trip, honeymoon, girls' trip, or anniversary — Victoria matches you to the resort that fits, not just the one that's on sale."
+  }
+}

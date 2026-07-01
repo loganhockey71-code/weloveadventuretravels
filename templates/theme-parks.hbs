@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head meta=meta}}
+</head>
+<body>
+
+{{> topbar shared=shared}}
+{{> nav activePage=activePage}}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="Theme Parks header">
+  <div class="page-hero-bg" style="background-image:url('{{pageHero.backgroundImage}}')"></div>
+  <div class="page-hero-content">
+    <span class="ph-sub">{{pageHero.sub}}</span>
+    <h1>{{pageHero.title}}</h1>
+    <p>{{pageHero.description}}</p>
+  </div>
+</section>
+
+<!-- DISNEY -->
+<section class="section">
+  <div class="section-inner">
+    <div class="content-split">
+      <div class="cs-img reveal">
+        <img src="{{section1.image}}" alt="{{section1.heading}}" loading="lazy">
+      </div>
+      <div class="cs-text reveal reveal-d1">
+        <span class="eyebrow" style="color:var(--{{section1.eyebrowColor}})">{{section1.eyebrow}}</span>
+        <h2>{{section1.heading}}</h2>
+        {{#each section1.paragraphs}}<p>{{this}}</p>{{/each}}
+        <div class="meet-points" style="margin:1.25rem 0">
+          {{#each section1.points}}
+          <div class="meet-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--{{../section1.eyebrowColor}})" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {{text}}
+          </div>
+          {{/each}}
+        </div>
+        <a href="contact.html" class="btn btn-{{section1.ctaColor}}">{{section1.ctaText}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSAL -->
+<section class="section section-bg">
+  <div class="section-inner">
+    <div class="content-split flip">
+      <div class="cs-img reveal">
+        <img src="{{section2.image}}" alt="{{section2.heading}}" loading="lazy">
+      </div>
+      <div class="cs-text reveal reveal-d1">
+        <span class="eyebrow" style="color:var(--{{section2.eyebrowColor}})">{{section2.eyebrow}}</span>
+        <h2>{{section2.heading}}</h2>
+        {{#each section2.paragraphs}}<p>{{this}}</p>{{/each}}
+        <div class="meet-points" style="margin:1.25rem 0">
+          {{#each section2.points}}
+          <div class="meet-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--{{../section2.eyebrowColor}})" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {{text}}
+          </div>
+          {{/each}}
+        </div>
+        <a href="contact.html" class="btn btn-{{section2.ctaColor}}">{{section2.ctaText}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNING TIPS -->
+<section class="section">
+  <div class="section-inner" style="max-width:860px;margin:0 auto">
+    <div class="section-header">
+      <span class="eyebrow reveal" style="color:var(--green)">{{tips.eyebrow}}</span>
+      <h2 class="reveal reveal-d1">{{tips.heading}}</h2>
+      <span class="divider d-green reveal reveal-d1"></span>
+    </div>
+    <div class="reveal reveal-d2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem">
+      {{#each tips.cards}}
+      <div style="padding:1.5rem;border-left:3px solid var(--{{color}});background:var(--off-white);border-radius:0 8px 8px 0">
+        <p style="font-weight:700;margin-bottom:.4rem">{{title}}</p>
+        <p style="font-size:.875rem;color:var(--text-muted);line-height:1.65">{{text}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner section-bg">
+  <div class="section-inner">
+    <span class="eyebrow reveal" style="color:var(--purple)">{{ctaBanner.eyebrow}}</span>
+    <h2 class="reveal reveal-d1">{{ctaBanner.heading}}</h2>
+    <p class="reveal reveal-d2">{{ctaBanner.paragraph}}</p>
+    <div class="cta-buttons reveal reveal-d3">
+      <a href="contact.html" class="btn btn-orange">Get a Free Theme Park Quote</a>
+      <a href="tel:{{shared.phoneHref}}" class="btn btn-outline-orange">Call {{shared.phone}}</a>
+    </div>
+  </div>
+</section>
+
+{{> footer shared=shared isHome=false}}
+
+<script src="js/main.js"></script>
+</body>
+</html>

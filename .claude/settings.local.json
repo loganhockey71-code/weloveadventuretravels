@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\css\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\js\")",
+      "PowerShell($port = 3012; $pids = \\(netstat -ano 2>$null | Select-String \":$port\\\\s\"\\) | ForEach-Object { \\($_.Line.Trim\\(\\) -split '\\\\s+'\\)[-1] } | Sort-Object -Unique; foreach \\($p in $pids\\) { try { Stop-Process -Id \\([int]$p\\) -Force -ErrorAction Stop } catch {} }; Write-Output \"Cleared port $port\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\admin\\\\routes\" \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\admin\\\\public\" \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\admin\\\\views\" \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\content\" \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\templates\\\\partials\" \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\\\\uploads\")",
+      "Bash(node admin/render.js)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

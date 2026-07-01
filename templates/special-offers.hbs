@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head meta=meta}}
+</head>
+<body>
+
+{{> topbar shared=shared}}
+{{> nav activePage=activePage}}
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('{{pageHero.backgroundImage}}')"></div>
+  <div class="page-hero-content">
+    <span class="ph-sub">{{pageHero.sub}}</span>
+    <h1>{{pageHero.title}}</h1>
+    <p>{{pageHero.description}}</p>
+  </div>
+</section>
+
+<!-- NOTE BAR -->
+<div style="background:var(--off-white);border-top:3px solid var(--orange);border-bottom:1px solid var(--border);padding:1.25rem 1.5rem;text-align:center">
+  <p style="font-size:.9rem;color:var(--text-muted);max-width:700px;margin:0 auto">{{{noteBar}}}</p>
+</div>
+
+<!-- OFFERS GRID -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow reveal" style="color:var(--orange)">{{section.eyebrow}}</span>
+      <h2 class="reveal reveal-d1">{{section.heading}}</h2>
+      <span class="divider d-orange reveal reveal-d1"></span>
+    </div>
+    <div class="offers-grid">
+      {{#each offers}}
+      <article class="offer-card reveal{{#if @index}} reveal-d{{@index}}{{/if}}">
+        <div class="offer-img">
+          <img src="{{image}}" alt="{{title}}" loading="lazy">
+        </div>
+        <div class="offer-body">
+          <span class="offer-tag" style="background:var(--{{tagColor}})">{{tag}}</span>
+          <h3>{{title}}</h3>
+          <p>{{description}}</p>
+          <a href="contact.html" class="btn btn-{{buttonColor}}" style="width:100%;justify-content:center">{{buttonText}}</a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner section-bg">
+  <div class="section-inner">
+    <span class="eyebrow reveal" style="color:var(--orange)">{{ctaBanner.eyebrow}}</span>
+    <h2 class="reveal reveal-d1">{{ctaBanner.heading}}</h2>
+    <p class="reveal reveal-d2">{{ctaBanner.paragraph}}</p>
+    <div class="cta-buttons reveal reveal-d3">
+      <a href="contact.html" class="btn btn-orange">Contact Victoria Now</a>
+      <a href="tel:{{shared.phoneHref}}" class="btn btn-outline-orange">Call {{shared.phone}}</a>
+    </div>
+  </div>
+</section>
+
+{{> footer shared=shared isHome=false}}
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head meta=meta}}
+</head>
+<body>
+
+{{> topbar shared=shared}}
+{{> nav activePage=activePage}}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="Cruises page header">
+  <div class="page-hero-bg" style="background-image:url('{{pageHero.backgroundImage}}')"></div>
+  <div class="page-hero-content">
+    <span class="ph-sub">{{pageHero.sub}}</span>
+    <h1>{{pageHero.title}}</h1>
+    <p>{{pageHero.description}}</p>
+  </div>
+</section>
+
+<!-- OCEAN & CARIBBEAN CRUISES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="content-split">
+      <div class="cs-img reveal">
+        <img src="{{section1.image}}" alt="{{section1.heading}}" loading="lazy">
+      </div>
+      <div class="cs-text reveal reveal-d1">
+        <span class="eyebrow" style="color:var(--{{section1.eyebrowColor}})">{{section1.eyebrow}}</span>
+        <h2>{{section1.heading}}</h2>
+        {{#each section1.paragraphs}}<p>{{this}}</p>{{/each}}
+        <a href="contact.html" class="btn btn-{{section1.ctaColor}}" style="margin-top:.5rem">{{section1.ctaText}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RIVER & LUXURY -->
+<section class="section section-bg">
+  <div class="section-inner">
+    <div class="content-split flip">
+      <div class="cs-img reveal">
+        <img src="{{section2.image}}" alt="{{section2.heading}}" loading="lazy">
+      </div>
+      <div class="cs-text reveal reveal-d1">
+        <span class="eyebrow" style="color:var(--{{section2.eyebrowColor}})">{{section2.eyebrow}}</span>
+        <h2>{{section2.heading}}</h2>
+        {{#each section2.paragraphs}}<p>{{this}}</p>{{/each}}
+        <a href="contact.html" class="btn btn-{{section2.ctaColor}}" style="margin-top:.5rem">{{section2.ctaText}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VICTORIA FOR CRUISES -->
+<section class="section">
+  <div class="section-inner" style="max-width:860px;margin:0 auto;text-align:center">
+    <span class="eyebrow reveal" style="color:var(--orange)">{{whyUse.eyebrow}}</span>
+    <h2 class="reveal reveal-d1" style="font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.5rem">{{whyUse.heading}}</h2>
+    <div class="reveal reveal-d2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;text-align:left;margin-top:1.5rem">
+      {{#each whyUse.cards}}
+      <div style="padding:1.5rem;border:1px solid var(--border);border-radius:8px;border-top:3px solid var(--{{color}})">
+        <p style="font-weight:700;margin-bottom:.5rem;color:var(--{{color}})">{{title}}</p>
+        <p style="font-size:.875rem;color:var(--text-muted);line-height:1.65">{{text}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner section-bg">
+  <div class="section-inner">
+    <span class="eyebrow reveal" style="color:var(--blue)">{{ctaBanner.eyebrow}}</span>
+    <h2 class="reveal reveal-d1">{{ctaBanner.heading}}</h2>
+    <p class="reveal reveal-d2">{{ctaBanner.paragraph}}</p>
+    <div class="cta-buttons reveal reveal-d3">
+      <a href="contact.html" class="btn btn-orange">Get a Free Cruise Quote</a>
+      <a href="tel:{{shared.phoneHref}}" class="btn btn-outline-orange">Call {{shared.phone}}</a>
+    </div>
+  </div>
+</section>
+
+{{> footer shared=shared isHome=false}}
+
+<script src="js/main.js"></script>
+</body>
+</html>

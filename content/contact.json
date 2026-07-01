@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Contact | We Love Adventure Travels",
+    "description": "Contact Victoria Smith at We Love Adventure Travels — call, email, or fill out the form to start planning your dream vacation today."
+  },
+  "pageHero": {
+    "sub": "Let's Start Planning",
+    "title": "CONTACT VICTORIA",
+    "description": "Call, email, or fill out the form below. Victoria responds within 24 hours — usually much faster.",
+    "backgroundImage": "https://i.imgur.com/5ZIfRA9.jpg"
+  },
+  "intro": {
+    "heading": "Reach Victoria Directly",
+    "paragraph": "There's no booking system here — just a real conversation with a real travel advisor who will take the time to understand what you're looking for and build the trip around you."
+  },
+  "sideImage": "https://i.imgur.com/cj6dUKU.jpg",
+  "freeNote": {
+    "heading": "Victoria's service is 100% free to you.",
+    "text": "Travel advisors earn their commission directly from hotels, cruise lines, and tour operators — there are no fees added to your trip. You get expert planning and advocacy at no extra cost."
+  },
+  "formHeading": "Tell Victoria About Your Dream Trip",
+  "testimonial": {
+    "text": "Victoria planned our entire Disney trip in two weeks and got us dining reservations I couldn't find anywhere. She's the only travel advisor we'll ever use.",
+    "author": "— The Martinez Family, Los Angeles"
+  }
+}

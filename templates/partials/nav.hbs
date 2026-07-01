@@ -1,0 +1,19 @@
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="We Love Adventure Travels Home">
+      <img src="logo.png" alt="We Love Adventure Travels" class="nav-logo-img">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"{{#if (eq activePage "home")}} class="active"{{/if}}>Home</a></li>
+      <li><a href="cruises.html"{{#if (eq activePage "cruises")}} class="active"{{/if}}>Cruises</a></li>
+      <li><a href="theme-parks.html"{{#if (eq activePage "theme-parks")}} class="active"{{/if}}>Theme Parks</a></li>
+      <li><a href="all-inclusive.html"{{#if (eq activePage "all-inclusive")}} class="active"{{/if}}>All-Inclusive</a></li>
+      <li><a href="special-offers.html"{{#if (eq activePage "special-offers")}} class="active"{{/if}}>Special Offers</a></li>
+      <li><a href="contact.html"{{#if (eq activePage "contact")}} class="active"{{/if}}>Contact</a></li>
+    </ul>
+  </div>
+</nav>

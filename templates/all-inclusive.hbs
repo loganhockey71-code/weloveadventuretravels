@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head meta=meta}}
+</head>
+<body>
+
+{{> topbar shared=shared}}
+{{> nav activePage=activePage}}
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('{{pageHero.backgroundImage}}')"></div>
+  <div class="page-hero-content">
+    <span class="ph-sub">{{pageHero.sub}}</span>
+    <h1>{{pageHero.title}}</h1>
+    <p>{{pageHero.description}}</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT: DESTINATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="content-split">
+      <div class="cs-img reveal">
+        <img src="{{section1.image}}" alt="{{section1.heading}}" loading="lazy">
+      </div>
+      <div class="cs-text reveal reveal-d1">
+        <span class="eyebrow" style="color:var(--{{section1.eyebrowColor}})">{{section1.eyebrow}}</span>
+        <h2>{{section1.heading}}</h2>
+        {{#each section1.paragraphs}}<p>{{this}}</p>{{/each}}
+        <a href="contact.html" class="btn btn-{{section1.ctaColor}}" style="margin-top:.5rem">{{section1.ctaText}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S ACTUALLY INCLUDED -->
+<section class="section section-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow reveal" style="color:var(--orange)">{{included.eyebrow}}</span>
+      <h2 class="reveal reveal-d1">{{included.heading}}</h2>
+      <span class="divider d-orange reveal reveal-d1"></span>
+      <p class="section-sub reveal reveal-d2">{{included.sub}}</p>
+    </div>
+    <div class="reveal reveal-d2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
+      {{#each included.columns}}
+      <div style="padding:1.75rem;background:var(--white);border-radius:8px;border:1px solid var(--border);border-top:3px solid var(--{{color}})">
+        <p style="font-weight:800;font-size:1rem;margin-bottom:.5rem">{{title}}</p>
+        <ul style="display:flex;flex-direction:column;gap:.4rem;font-size:.875rem;color:var(--text-muted);line-height:1.6">
+          {{#each items}}<li>{{this}}</li>{{/each}}
+        </ul>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR BRANDS -->
+<section class="section">
+  <div class="section-inner" style="max-width:860px;margin:0 auto;text-align:center">
+    <span class="eyebrow reveal" style="color:var(--blue)">{{brands.eyebrow}}</span>
+    <h2 class="reveal reveal-d1" style="font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.5rem">{{brands.heading}}</h2>
+    <div class="reveal reveal-d2" style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.25rem">
+      {{#each brands.list}}<span style="padding:.5rem 1.1rem;border:1.5px solid var(--border);border-radius:4px;font-weight:600;font-size:.875rem">{{this}}</span>{{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner section-bg">
+  <div class="section-inner">
+    <span class="eyebrow reveal" style="color:var(--green)">{{ctaBanner.eyebrow}}</span>
+    <h2 class="reveal reveal-d1">{{ctaBanner.heading}}</h2>
+    <p class="reveal reveal-d2">{{ctaBanner.paragraph}}</p>
+    <div class="cta-buttons reveal reveal-d3">
+      <a href="contact.html" class="btn btn-orange">Get a Free Resort Quote</a>
+      <a href="tel:{{shared.phoneHref}}" class="btn btn-outline-orange">Call {{shared.phone}}</a>
+    </div>
+  </div>
+</section>
+
+{{> footer shared=shared isHome=false}}
+
+<script src="js/main.js"></script>
+</body>
+</html>

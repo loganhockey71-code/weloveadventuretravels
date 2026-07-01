@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Theme Parks | We Love Adventure Travels",
+    "description": "Plan your Disney or Universal vacation with Victoria Smith — skip the stress and let a certified Disney Vacation Planner handle every detail."
+  },
+  "pageHero": {
+    "sub": "Magic Awaits",
+    "title": "THEME PARKS",
+    "description": "Disney World, Disneyland, Universal Studios — Victoria is a certified planner who knows how to get the most out of every single day at the parks.",
+    "backgroundImage": "https://i.imgur.com/9HfGkPj.jpg"
+  },
+  "section1": {
+    "eyebrow": "Authorized Disney Vacation Planner",
+    "eyebrowColor": "purple",
+    "heading": "Disney World & Disneyland",
+    "image": "https://i.imgur.com/Ez9SSnR.jpg",
+    "paragraphs": [
+      "Disney vacations are deceptively complex. Between park reservations, Lightning Lane bookings, dining reservations that open 60 days out, and resort choices that change your whole experience — a first-time visitor (or even a returning one) can quickly feel overwhelmed.",
+      "Victoria is an Authorized Disney Vacation Planner. She knows the difference between Value, Moderate, and Deluxe resorts — and when each one is actually worth it. She'll map out your days, pre-book your dining, and make sure you hit everything that matters to your family.",
+      "And her service is completely free to you — Disney pays her commission directly."
+    ],
+    "points": [
+      { "text": "Resort selection & room category advice" },
+      { "text": "Dining reservations & character meals" },
+      { "text": "Park day itinerary planning" },
+      { "text": "Disney Cruise Line packages" }
+    ],
+    "ctaText": "Plan Your Disney Trip",
+    "ctaColor": "purple"
+  },
+  "section2": {
+    "eyebrow": "Wizards Welcome",
+    "eyebrowColor": "orange",
+    "heading": "Universal Studios & Epic Universe",
+    "image": "https://i.imgur.com/cYCIVsg.jpg",
+    "paragraphs": [
+      "Universal Orlando has grown into a multi-day destination all on its own. The Wizarding World of Harry Potter, Jurassic World, and the brand-new Epic Universe are experiences that kids (and adults) don't forget.",
+      "Victoria will help you decide how many days you actually need, whether the Express Pass is worth it for your group, which on-site hotel benefits matter, and how to combine Universal with Disney without burning everyone out."
+    ],
+    "points": [
+      { "text": "Universal Orlando & Hollywood" },
+      { "text": "Epic Universe — new for 2025" },
+      { "text": "On-site hotel recommendations" },
+      { "text": "Combo itineraries with Disney" }
+    ],
+    "ctaText": "Plan Your Universal Trip",
+    "ctaColor": "orange"
+  },
+  "tips": {
+    "eyebrow": "Pro Tips",
+    "heading": "What Most People Get Wrong",
+    "cards": [
+      { "title": "Going without a plan", "color": "purple", "text": "Disney and Universal reward preparation. Guests without reservations and a day plan spend hours in lines they could have avoided." },
+      { "title": "Staying off-property to save money", "color": "orange", "text": "On-site hotels at Disney and Universal include perks — early park entry, transportation, and room-only discounts — that often make them the better value." },
+      { "title": "Booking too many parks in one trip", "color": "blue", "text": "Trying to do six parks in five days leaves everyone exhausted and underwhelmed. Victoria helps you pick what's actually right for your family." }
+    ]
+  },
+  "ctaBanner": {
+    "eyebrow": "Free to Plan With Victoria",
+    "heading": "Your Magic Starts With One Conversation",
+    "paragraph": "Tell Victoria your dates, your kids' ages, and what everyone's most excited about — she'll build the itinerary that makes it all happen."
+  }
+}

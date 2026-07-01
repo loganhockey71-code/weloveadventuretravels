@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Cruises | We Love Adventure Travels",
+    "description": "Plan your perfect cruise with Victoria Smith — ocean, river, family, and luxury cruises. Get personalized recommendations and exclusive deals."
+  },
+  "pageHero": {
+    "sub": "Set Sail With",
+    "title": "CRUISES",
+    "description": "Ocean, river, family, and luxury cruises — Victoria finds the right ship, the right itinerary, and the right price for exactly the trip you're dreaming of.",
+    "backgroundImage": "https://i.imgur.com/O1pOLnI.jpg"
+  },
+  "section1": {
+    "eyebrow": "Most Popular",
+    "eyebrowColor": "blue",
+    "heading": "Ocean & Caribbean Cruises",
+    "image": "https://i.imgur.com/6eMxxAx.jpg",
+    "paragraphs": [
+      "The Caribbean is one of the most popular cruise regions in the world — and for good reason. Seven-night itineraries from ports in Florida and Texas hit multiple islands, give you time in the water, and feel like a completely different world.",
+      "Victoria works with all the major cruise lines — Carnival, Royal Caribbean, Norwegian, Celebrity, MSC, and more. She knows which ships are worth the upgrade and which excursions are actually worth booking before you board.",
+      "Whether it's your first cruise or your fifteenth, she'll match you with the right ship, the right cabin, and an itinerary that fits your group."
+    ],
+    "ctaText": "Talk to Victoria About Cruises",
+    "ctaColor": "blue"
+  },
+  "section2": {
+    "eyebrow": "Elevated Experiences",
+    "eyebrowColor": "purple",
+    "heading": "River & Luxury Cruises",
+    "image": "https://i.imgur.com/O1pOLnI.jpg",
+    "paragraphs": [
+      "River cruises through Europe are an entirely different experience — smaller ships, port-intensive itineraries, and a pace that actually lets you absorb the places you visit. The Danube, the Rhine, and the Douro are favorites Victoria has planned for many clients.",
+      "For those who want the finest at sea, luxury lines like Viking, Oceania, Azamara, and Regent Seven Seas offer an all-inclusive experience with exceptional service. Victoria knows these products inside and out and can help you decide if the higher price tag makes sense for your trip."
+    ],
+    "ctaText": "Explore Luxury Options",
+    "ctaColor": "purple"
+  },
+  "whyUse": {
+    "eyebrow": "Why Use a Travel Advisor",
+    "heading": "Victoria Does the Work. You Do the Fun.",
+    "cards": [
+      { "title": "No Extra Cost to You", "color": "orange", "text": "Victoria earns her commission from the cruise line — her expertise and service cost you nothing." },
+      { "title": "Exclusive Perks & OBC", "color": "blue", "text": "As a partner agent, Victoria can access onboard credit, upgrades, and amenity packages you won't find booking direct." },
+      { "title": "Advocacy When Things Go Wrong", "color": "green", "text": "If your flight is delayed or a port stop is cancelled, Victoria is on the phone working it out while you're still on the ship." }
+    ]
+  },
+  "ctaBanner": {
+    "eyebrow": "Ready to Set Sail?",
+    "heading": "Let Victoria Plan Your Perfect Cruise",
+    "paragraph": "Tell her when you want to go, how many in your group, and the kind of experience you're after — she'll do the rest."
+  }
+}
