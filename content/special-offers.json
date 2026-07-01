@@ -15,60 +15,12 @@
     "heading": "Deals Worth Calling About"
   },
   "offers": [
-    {
-      "tag": "🚢 Cruise Deal",
-      "tagColor": "blue",
-      "title": "7-Night TEST Caribbean Cruise",
-      "description": "Interior cabins from $699/person on select Royal Caribbean and Carnival sailings. Departs from Miami, Port Canaveral, and Galveston. Includes all meals, entertainment, and port stops in Cozumel, Nassau, and St. Thomas.",
-      "image": "https://i.imgur.com/CjmeSmX.jpg",
-      "buttonText": "Ask Victoria About This Deal",
-      "buttonColor": "blue"
-    },
-    {
-      "tag": "🏖️ Resort Deal",
-      "tagColor": "green",
-      "title": "Cancun All-Inclusive Escape",
-      "description": "4 nights at a 4-star Riviera Maya resort from $849/person, including flights from select cities, all meals, drinks, and transfers. This rate is available for travel through early next year and sells fast.",
-      "image": "https://i.imgur.com/laqZveX.jpg",
-      "buttonText": "Ask Victoria About This Deal",
-      "buttonColor": "green"
-    },
-    {
-      "tag": "🏰 Disney Package",
-      "tagColor": "purple",
-      "title": "Disney World Free Dining Offer",
-      "description": "Select Walt Disney World resort hotels are offering complimentary quick-service dining plans with qualifying packages. Victoria can check if your preferred resort and travel dates qualify — these windows change frequently.",
-      "image": "https://i.imgur.com/cj6dUKU.jpg",
-      "buttonText": "Ask Victoria About This Deal",
-      "buttonColor": "purple"
-    },
-    {
-      "tag": "👨‍👩‍👧‍👦 Group Rates",
-      "tagColor": "blue",
-      "title": "Group Travel Discounts",
-      "description": "Traveling with 8 or more people? Victoria negotiates group rates on cruises, resorts, and Disney packages that are significantly better than booking individually. Family reunions, birthday trips, and wedding groups are her specialty.",
-      "image": "https://i.imgur.com/sWRTvxZ.jpg",
-      "buttonText": "Ask About Group Rates",
-      "buttonColor": "blue"
-    },
-    {
-      "tag": "💍 Honeymoon Perks",
-      "tagColor": "orange",
-      "title": "Honeymoon & Romance Packages",
-      "description": "Resorts and cruise lines offer special amenities for honeymooners — room upgrades, sparkling wine, couples massages, and more. Victoria makes sure these perks are applied to your booking, not just promised at check-in.",
-      "image": "https://i.imgur.com/5ZIfRA9.jpg",
-      "buttonText": "Plan Your Honeymoon",
-      "buttonColor": "orange"
-    },
-    {
-      "tag": "🎉 Test Deal",
-      "tagColor": "orange",
-      "title": "Brand New Test Offer",
-      "description": "",
-      "image": "",
-      "buttonText": "",
-      "buttonColor": "orange"
-    }
+    { "tag": "🚢 Cruise Deal", "tagColor": "blue", "title": "7-Night Caribbean Cruise", "description": "Interior cabins from $699/person on select Royal Caribbean and Carnival sailings. Departs from Miami, Port Canaveral, and Galveston. Includes all meals, entertainment, and port stops in Cozumel, Nassau, and St. Thomas.", "image": "https://i.imgur.com/CjmeSmX.jpg", "buttonText": "Ask Victoria About This Deal", "buttonColor": "blue" },
+    { "tag": "🏖️ Resort Deal", "tagColor": "green", "title": "Cancun All-Inclusive Escape", "description": "4 nights at a 4-star Riviera Maya resort from $849/person, including flights from select cities, all meals, drinks, and transfers. This rate is available for travel through early next year and sells fast.", "image": "https://i.imgur.com/laqZveX.jpg", "buttonText": "Ask Victoria About This Deal", "buttonColor": "green" },
+    { "tag": "🏰 Disney Package", "tagColor": "purple", "title": "Disney World Free Dining Offer", "description": "Select Walt Disney World resort hotels are offering complimentary quick-service dining plans with qualifying packages. Victoria can check if your preferred resort and travel dates qualify — these windows change frequently.", "image": "https://i.imgur.com/cj6dUKU.jpg", "buttonText": "Ask Victoria About This Deal", "buttonColor": "purple" },
+    { "tag": "⭐ Upgrade Offer", "tagColor": "orange", "title": "Complimentary Cabin Upgrades", "description": "Several cruise lines are offering complimentary upgrades from interior to oceanview — and in some cases, balcony cabins — on specific sailings. Victoria knows which ships and sailings are currently eligible.", "image": "https://i.imgur.com/q42jhGc.jpg", "buttonText": "Ask Victoria About This Deal", "buttonColor": "orange" },
+    { "tag": "👨‍👩‍👧‍👦 Group Rates", "tagColor": "blue", "title": "Group Travel Discounts", "description": "Traveling with 8 or more people? Victoria negotiates group rates on cruises, resorts, and Disney packages that are significantly better than booking individually. Family reunions, birthday trips, and wedding groups are her specialty.", "image": "https://i.imgur.com/sWRTvxZ.jpg", "buttonText": "Ask About Group Rates", "buttonColor": "blue" },
+    { "tag": "💍 Honeymoon Perks", "tagColor": "orange", "title": "Honeymoon & Romance Packages", "description": "Resorts and cruise lines offer special amenities for honeymooners — room upgrades, sparkling wine, couples massages, and more. Victoria makes sure these perks are applied to your booking, not just promised at check-in.", "image": "https://i.imgur.com/5ZIfRA9.jpg", "buttonText": "Plan Your Honeymoon", "buttonColor": "orange" }
   ],
   "ctaBanner": {
     "eyebrow": "Don't Wait — Deals Change Weekly",
