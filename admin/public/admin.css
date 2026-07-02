@@ -49,6 +49,24 @@ body {
 
 label { display: flex; flex-direction: column; gap: .35rem; font-size: .875rem; font-weight: 600; }
 
+.password-field { position: relative; display: block; }
+.password-field input { padding-right: 3.5rem; }
+.password-toggle {
+  position: absolute;
+  right: .4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--a-muted);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: .3rem .4rem;
+}
+.password-toggle:hover { color: var(--a-text); }
+
 input[type="text"], input[type="password"], input[type="url"], textarea, select {
   font: inherit;
   padding: .6rem .7rem;

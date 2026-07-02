@@ -31,11 +31,23 @@ function loginPage({ error }) {
       <input type="text" name="username" autocomplete="username" required autofocus>
     </label>
     <label>Password
-      <input type="password" name="password" autocomplete="current-password" required>
+      <span class="password-field">
+        <input type="password" name="password" id="password-input" autocomplete="current-password" required>
+        <button type="button" id="toggle-password" class="password-toggle" aria-label="Show password">Show</button>
+      </span>
     </label>
     <button type="submit" class="btn">Log In</button>
   </form>
-</div>`;
+</div>
+<script>
+document.getElementById('toggle-password').addEventListener('click', function () {
+  const input = document.getElementById('password-input');
+  const showing = input.type === 'text';
+  input.type = showing ? 'password' : 'text';
+  this.textContent = showing ? 'Show' : 'Hide';
+  this.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+});
+</script>`;
   return layout({ title: 'Log In', body });
 }
 

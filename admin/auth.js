@@ -17,8 +17,13 @@ function loadAccount() {
 function verifyLogin(username, password) {
   const account = loadAccount();
   if (!account) return false;
-  if (username !== account.username) return false;
-  return bcrypt.compareSync(password, account.passwordHash);
+  if (typeof username !== 'string' || typeof password !== 'string') return false;
+  // Trim stray whitespace from copy/paste, and treat username as case-insensitive —
+  // the password itself stays case-sensitive.
+  const cleanUsername = username.trim().toLowerCase();
+  const cleanPassword = password.trim();
+  if (cleanUsername !== account.username.trim().toLowerCase()) return false;
+  return bcrypt.compareSync(cleanPassword, account.passwordHash);
 }
 
 function requireAuth(req, res, next) {
