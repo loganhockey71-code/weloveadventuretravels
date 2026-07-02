@@ -1,19 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
-const { ROOT } = require('./pages-config');
+const { ROOT, UPLOADS_DIR } = require('./pages-config');
 
 // Everything a visitor's browser needs — the rendered pages plus static assets. Excludes
 // the admin app, source templates/content, and anything else that shouldn't be public.
 const SITE_FILES = ['index.html', 'cruises.html', 'theme-parks.html', 'all-inclusive.html', 'special-offers.html', 'contact.html', 'logo.png'];
-const SITE_DIRS = ['css', 'js', 'uploads'];
+const SITE_DIRS = ['css', 'js'];
 
 function isConfigured() {
   return Boolean(process.env.NETLIFY_AUTH_TOKEN && process.env.NETLIFY_SITE_ID);
 }
 
-function addDir(archive, dir) {
-  const abs = path.join(ROOT, dir);
+function addDir(archive, dir, abs) {
   if (fs.existsSync(abs)) archive.directory(abs, dir);
 }
 
@@ -29,7 +28,8 @@ function buildZip() {
       const abs = path.join(ROOT, file);
       if (fs.existsSync(abs)) archive.file(abs, { name: file });
     }
-    for (const dir of SITE_DIRS) addDir(archive, dir);
+    for (const dir of SITE_DIRS) addDir(archive, dir, path.join(ROOT, dir));
+    addDir(archive, 'uploads', UPLOADS_DIR);
 
     archive.finalize();
   });

@@ -1,12 +1,11 @@
 require('dotenv').config();
 const path = require('path');
-const fs = require('fs');
 const express = require('express');
 const session = require('express-session');
 
 const { ROOT, UPLOADS_DIR, PAGES, getPage } = require('./pages-config');
 const { hasAdminAccount, verifyLogin, requireAuth, loginLimiter } = require('./auth');
-const { readContent, saveContent, listHistory, revertTo } = require('./content-store');
+const { readContent, saveContent, listHistory, revertTo, ensureDataDir } = require('./content-store');
 const { upload } = require('./upload');
 const netlify = require('./netlify-deploy');
 const views = require('./views');
@@ -134,16 +133,19 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 
 app.use((req, res) => res.status(404).send('404 Not found'));
 
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+(async () => {
+  // Sets up content/uploads/version-history storage (seeding it on a fresh
+  // persistent disk if needed), then renders pages from whatever content
+  // is currently saved before accepting traffic.
+  await ensureDataDir();
+  renderAll();
 
-// Make sure the pages on disk match the content files before serving.
-renderAll();
-
-app.listen(PORT, () => {
-  console.log('\n  We Love Adventure Travels');
-  console.log(`  Site:  http://localhost:${PORT}`);
-  console.log(`  Admin: http://localhost:${PORT}/admin\n`);
-  if (!hasAdminAccount()) {
-    console.log('  No admin account yet — run "npm run setup" to create one.\n');
-  }
-});
+  app.listen(PORT, () => {
+    console.log('\n  We Love Adventure Travels');
+    console.log(`  Site:  http://localhost:${PORT}`);
+    console.log(`  Admin: http://localhost:${PORT}/admin\n`);
+    if (!hasAdminAccount()) {
+      console.log('  No admin account yet — run "npm run setup" to create one.\n');
+    }
+  });
+})();

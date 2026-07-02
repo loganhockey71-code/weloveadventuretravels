@@ -1,9 +1,7 @@
 const fs = require('fs');
-const path = require('path');
 const bcrypt = require('bcryptjs');
 const rateLimit = require('express-rate-limit');
-
-const AUTH_FILE = path.join(__dirname, '.auth.json');
+const { AUTH_FILE } = require('./pages-config');
 
 function hasAdminAccount() {
   return fs.existsSync(AUTH_FILE);

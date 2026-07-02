@@ -15,7 +15,13 @@
       "Bash(node --check admin/public/editor.js)",
       "Bash(node --check admin/views.js)",
       "Bash(cd \"C:\\\\Users\\\\logan\\\\OneDrive\\\\Desktop\\\\We love\" && rm -f uploads/*.png && ls uploads/)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(npx ctx7@latest library Netlify \"personal access token expiration settings\")",
+      "Bash(npx ctx7@latest docs /websites/netlify \"personal access token expiration new access token dialog\")",
+      "Bash(npx ctx7@latest docs /websites/render \"persistent disk storage web service free tier ephemeral filesystem restart\")",
+      "Bash(npx ctx7@latest library \"Fly.io\" \"free tier persistent app always on 2025\")",
+      "Bash(npx ctx7@latest docs /superfly/docs \"free allowance pricing free tier credit card required no cost\")",
+      "Bash(gh auth *)"
     ]
   }
 }

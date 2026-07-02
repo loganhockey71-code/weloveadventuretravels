@@ -3,9 +3,13 @@ const path = require('path');
 const readline = require('readline');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
+const { AUTH_FILE, DATA_DIR, ROOT } = require('./pages-config');
 
-const AUTH_FILE = path.join(__dirname, '.auth.json');
-const ENV_FILE = path.join(__dirname, '..', '.env');
+const ENV_FILE = path.join(ROOT, '.env');
+// Only manage a local .env file for plain local-dev use. On a hosted platform
+// (DATA_DIR pointed at a persistent disk), env vars are configured through
+// the platform's dashboard instead, so leave them alone here.
+const MANAGE_ENV_FILE = DATA_DIR === ROOT;
 
 const CODE_CR = 13;
 const CODE_LF = 10;
@@ -60,28 +64,31 @@ async function main() {
     process.exit(1);
   }
 
+  fs.mkdirSync(DATA_DIR, { recursive: true });
   const passwordHash = bcrypt.hashSync(password, 12);
   fs.writeFileSync(AUTH_FILE, JSON.stringify({ username, passwordHash }, null, 2));
 
-  // Ensure .env has a session secret
-  let envContent = fs.existsSync(ENV_FILE) ? fs.readFileSync(ENV_FILE, 'utf8') : '';
-  if (!/SESSION_SECRET=/.test(envContent)) {
-    const secret = crypto.randomBytes(32).toString('hex');
-    envContent += (envContent.endsWith('\n') || envContent === '' ? '' : '\n') + `SESSION_SECRET=${secret}\n`;
+  if (MANAGE_ENV_FILE) {
+    // Ensure .env has a session secret
+    let envContent = fs.existsSync(ENV_FILE) ? fs.readFileSync(ENV_FILE, 'utf8') : '';
+    if (!/SESSION_SECRET=/.test(envContent)) {
+      const secret = crypto.randomBytes(32).toString('hex');
+      envContent += (envContent.endsWith('\n') || envContent === '' ? '' : '\n') + `SESSION_SECRET=${secret}\n`;
+    }
+    if (!/PORT=/.test(envContent)) {
+      envContent += `PORT=3012\n`;
+    }
+    if (!/NETLIFY_AUTH_TOKEN=/.test(envContent)) {
+      envContent += `NETLIFY_AUTH_TOKEN=\n`;
+    }
+    if (!/NETLIFY_SITE_ID=/.test(envContent)) {
+      envContent += `NETLIFY_SITE_ID=\n`;
+    }
+    fs.writeFileSync(ENV_FILE, envContent);
   }
-  if (!/PORT=/.test(envContent)) {
-    envContent += `PORT=3012\n`;
-  }
-  if (!/NETLIFY_AUTH_TOKEN=/.test(envContent)) {
-    envContent += `NETLIFY_AUTH_TOKEN=\n`;
-  }
-  if (!/NETLIFY_SITE_ID=/.test(envContent)) {
-    envContent += `NETLIFY_SITE_ID=\n`;
-  }
-  fs.writeFileSync(ENV_FILE, envContent);
 
   console.log(`\n  Admin account created for "${username}".`);
-  console.log('  Run "npm start" and open http://localhost:3012/admin to log in.\n');
+  console.log('  Run "npm start" and open the admin panel to log in.\n');
 }
 
 main();

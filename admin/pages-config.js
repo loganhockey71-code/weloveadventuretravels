@@ -2,6 +2,13 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 
+// Where saved content, uploads, the login account, and version history live.
+// Defaults to the project folder itself (fine for local use). On a host with
+// a persistent disk (e.g. Render), set DATA_DIR to that disk's mount path so
+// this data survives redeploys/restarts instead of living in the ephemeral
+// source checkout.
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : ROOT;
+
 const PAGES = [
   { key: 'home', label: 'Home', contentFile: 'index.json', templateFile: 'index.hbs', outputFile: 'index.html' },
   { key: 'cruises', label: 'Cruises', contentFile: 'cruises.json', templateFile: 'cruises.hbs', outputFile: 'cruises.html' },
@@ -17,9 +24,11 @@ function getPage(key) {
 
 module.exports = {
   ROOT,
+  DATA_DIR,
   PAGES,
   getPage,
-  CONTENT_DIR: path.join(ROOT, 'content'),
+  CONTENT_DIR: path.join(DATA_DIR, 'content'),
   TEMPLATES_DIR: path.join(ROOT, 'templates'),
-  UPLOADS_DIR: path.join(ROOT, 'uploads'),
+  UPLOADS_DIR: path.join(DATA_DIR, 'uploads'),
+  AUTH_FILE: path.join(DATA_DIR, '.auth.json'),
 };
