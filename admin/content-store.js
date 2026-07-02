@@ -17,6 +17,11 @@ async function ensureDataDir() {
   fs.mkdirSync(CONTENT_DIR, { recursive: true });
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
+  // On hosts like Render, the persistent disk is owned by a different uid than
+  // the app process, so git refuses to touch it ("detected dubious ownership")
+  // until it's explicitly marked safe. Must happen before any other git call.
+  await git.raw(['config', '--global', '--add', 'safe.directory', DATA_DIR]).catch(() => {});
+
   if (DATA_DIR !== ROOT) {
     const seedContentDir = path.join(ROOT, 'content');
     for (const page of PAGES) {
