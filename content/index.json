@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "We Love Adventure Travels | Victoria Smith, Travel Advisor",
+    "title": "We Love Adventure Travels | Victoria Smith, Travel",
     "description": "We Love Adventure Travels — Victoria Smith plans cruises, Disney vacations, all-inclusive resorts, and unforgettable family getaways. Get a free consultation today."
   },
   "hero": {
@@ -13,10 +13,22 @@
     "ctaSecondaryText": "📅 Schedule a Consultation"
   },
   "stats": [
-    { "num": "500+", "label": "Happy Families" },
-    { "num": "15+", "label": "Years Planning" },
-    { "num": "50+", "label": "Destinations" },
-    { "num": "5★", "label": "Client Rating" }
+    {
+      "num": "500+",
+      "label": "Happy Families"
+    },
+    {
+      "num": "15+",
+      "label": "Years Planning"
+    },
+    {
+      "num": "50+",
+      "label": "Destinations"
+    },
+    {
+      "num": "5★",
+      "label": "Client Rating"
+    }
   ],
   "meet": {
     "eyebrow": "Meet Your Travel Advisor",
@@ -25,22 +37,75 @@
     "paragraph2": "I specialize in cruises, theme park vacations, and all-inclusive resorts. Whether you're planning a multigenerational family reunion or a romantic anniversary escape, I'm here to handle every detail while you focus on the excitement.",
     "image": "https://i.imgur.com/kEGAHVR.jpg",
     "points": [
-      { "text": "Certified Independent Travel Advisor", "color": "green" },
-      { "text": "Authorized Disney Vacation Planner", "color": "blue" },
-      { "text": "Cruise Line Partner Agent", "color": "orange" },
-      { "text": "No booking fees — Victoria's service is free to you", "color": "purple" }
+      {
+        "text": "Certified Independent Travel Advisor",
+        "color": "green"
+      },
+      {
+        "text": "Authorized Disney Vacation Planner",
+        "color": "blue"
+      },
+      {
+        "text": "Cruise Line Partner Agent",
+        "color": "orange"
+      },
+      {
+        "text": "No booking fees — Victoria's service is free to you",
+        "color": "purple"
+      }
     ]
   },
   "travelCards": [
-    { "title": "All-Inclusive Resorts", "color": "orange", "description": "Relax and enjoy while everything is taken care of. Mexico, the Caribbean, and beyond.", "image": "https://i.imgur.com/kEGAHVR.jpg", "link": "all-inclusive.html", "linkText": "Explore Resorts →", "icon": "<path d=\"M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7\"/>" },
-    { "title": "Cruises", "color": "blue", "description": "Ocean, river, family, and luxury cruises for every style, season, and budget.", "image": "https://i.imgur.com/Z9oPH1u.jpg", "link": "cruises.html", "linkText": "Explore Cruises →", "icon": "<circle cx=\"12\" cy=\"5\" r=\"3\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"8\"/><path d=\"M5 12H2a10 10 0 0 0 20 0h-3\"/>" },
-    { "title": "Theme Park Vacations", "color": "purple", "description": "Magical Disney and Universal experiences for the whole family, planned perfectly.", "image": "https://i.imgur.com/9HfGkPj.jpg", "link": "theme-parks.html", "linkText": "Explore Parks →", "icon": "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>" },
-    { "title": "Special Offers", "color": "green", "description": "Exclusive promotions and deals that Victoria's clients get access to first.", "image": "https://i.imgur.com/B1cc8kj.jpg", "link": "special-offers.html", "linkText": "See Current Deals →", "icon": "<path d=\"M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z\"/><line x1=\"7\" y1=\"7\" x2=\"7.01\" y2=\"7\"/>" }
+    {
+      "title": "All-Inclusive Resorts",
+      "color": "orange",
+      "description": "Relax and enjoy while everything is taken care of. Mexico, the Caribbean, and beyond.",
+      "image": "https://i.imgur.com/kEGAHVR.jpg",
+      "link": "all-inclusive.html",
+      "linkText": "Explore Resorts →",
+      "icon": "<path d=\"M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7\"/>"
+    },
+    {
+      "title": "Cruises",
+      "color": "blue",
+      "description": "Ocean, river, family, and luxury cruises for every style, season, and budget.",
+      "image": "https://i.imgur.com/Z9oPH1u.jpg",
+      "link": "cruises.html",
+      "linkText": "Explore Cruises →",
+      "icon": "<circle cx=\"12\" cy=\"5\" r=\"3\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"8\"/><path d=\"M5 12H2a10 10 0 0 0 20 0h-3\"/>"
+    },
+    {
+      "title": "Theme Park Vacations",
+      "color": "purple",
+      "description": "Magical Disney and Universal experiences for the whole family, planned perfectly.",
+      "image": "https://i.imgur.com/9HfGkPj.jpg",
+      "link": "theme-parks.html",
+      "linkText": "Explore Parks →",
+      "icon": "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>"
+    },
+    {
+      "title": "Special Offers",
+      "color": "green",
+      "description": "Exclusive promotions and deals that Victoria's clients get access to first.",
+      "image": "https://i.imgur.com/B1cc8kj.jpg",
+      "link": "special-offers.html",
+      "linkText": "See Current Deals →",
+      "icon": "<path d=\"M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z\"/><line x1=\"7\" y1=\"7\" x2=\"7.01\" y2=\"7\"/>"
+    }
   ],
   "testimonials": [
-    { "text": "Victoria planned every detail and made our vacation completely effortless. She found us a dining reservation at Be Our Guest that we never could have gotten on our own. We can't wait to book our next trip with her!", "author": "— The Johnson Family" },
-    { "text": "Amazing service from start to finish! Victoria got us the best value for our budget — and she was there every step of the way when our travel dates shifted. Best travel experience we've ever had.", "author": "— Michael & Ashley" },
-    { "text": "Planning a cruise for 12 people sounded like a nightmare. Victoria made it look easy. She negotiated a group rate and had every excursion booked before we even thought to ask. Truly couldn't have done it without her.", "author": "— The Williams Family" }
+    {
+      "text": "Victoria planned every detail and made our vacation completely effortless. She found us a dining reservation at Be Our Guest that we never could have gotten on our own. We can't wait to book our next trip with her!",
+      "author": "— The Johnson Family"
+    },
+    {
+      "text": "Amazing service from start to finish! Victoria got us the best value for our budget — and she was there every step of the way when our travel dates shifted. Best travel experience we've ever had.",
+      "author": "— Michael & Ashley"
+    },
+    {
+      "text": "Planning a cruise for 12 people sounded like a nightmare. Victoria made it look easy. She negotiated a group rate and had every excursion booked before we even thought to ask. Truly couldn't have done it without her.",
+      "author": "— The Williams Family"
+    }
   ],
   "quoteSplit": {
     "heading": "Let's Plan Your Next Adventure!",
