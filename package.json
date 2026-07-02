@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "We Love Adventure Travels site + admin content editor",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node admin/server.js",
     "setup": "node admin/setup.js",
