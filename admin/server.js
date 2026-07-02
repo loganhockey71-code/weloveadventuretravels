@@ -137,7 +137,12 @@ app.use((req, res) => res.status(404).send('404 Not found'));
   // Sets up content/uploads/version-history storage (seeding it on a fresh
   // persistent disk if needed), then renders pages from whatever content
   // is currently saved before accepting traffic.
-  await ensureDataDir();
+  try {
+    await ensureDataDir();
+  } catch (err) {
+    console.error('  Failed to initialize content storage:', err.message);
+    console.error('  Saving/publishing may not work until this is resolved.\n');
+  }
   renderAll();
 
   app.listen(PORT, () => {

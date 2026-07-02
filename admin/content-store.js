@@ -36,6 +36,13 @@ async function ensureDataDir() {
   const isRepo = await git.checkIsRepo().catch(() => false);
   if (!isRepo) {
     await git.init();
+    // On a just-attached persistent disk (e.g. Render), the .git folder we
+    // just wrote can briefly be invisible to a fresh git process while the
+    // mount finishes settling — retry instead of crashing server startup.
+    const gitDir = path.join(DATA_DIR, '.git');
+    for (let attempt = 0; !fs.existsSync(gitDir) && attempt < 10; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+    }
     await git.addConfig('user.name', 'Site Admin', false, 'local');
     await git.addConfig('user.email', 'admin@localhost', false, 'local');
     await git.add(['content']);
