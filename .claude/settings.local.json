@@ -21,7 +21,18 @@
       "Bash(npx ctx7@latest docs /websites/render \"persistent disk storage web service free tier ephemeral filesystem restart\")",
       "Bash(npx ctx7@latest library \"Fly.io\" \"free tier persistent app always on 2025\")",
       "Bash(npx ctx7@latest docs /superfly/docs \"free allowance pricing free tier credit card required no cost\")",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(npx ctx7@latest library \"Cloudflare Tunnel\" \"cloudflared quick tunnel vs named tunnel stable URL free\")",
+      "Bash(npx ctx7@latest docs /cloudflare/cloudflare-docs \"quick tunnels trycloudflare.com not for production stable named tunnel free plan\")",
+      "Bash(npx ctx7@latest docs /cloudflare/cloudflare-docs \"delegate subdomain to Cloudflare without changing nameservers for whole domain CNAME setup partial zone\")",
+      "Bash(npx ctx7@latest docs /cloudflare/cloudflare-docs \"CNAME setup partial zone plan requirement enterprise free availability\")",
+      "Bash(npx ctx7@latest docs /cloudflare/cloudflare-docs \"add subdomain as separate zone NS delegation glue records free plan full setup\")",
+      "Bash(npx ctx7@latest docs /cloudflare/cloudflare-docs \"dashboard restricts subdomain zone creation UI API only child zone add a site error root domain\")",
+      "Bash(npx ctx7@latest library \"Oracle Cloud Infrastructure\" \"always free tier compute instance signup capacity issues\")",
+      "Bash(npx ctx7@latest docs /websites/oracle_en-us_iaas \"always free eligible resources compute shapes VM.Standard.E2.1.Micro A1.Flex limits sign up steps\")",
+      "Bash(npx ctx7@latest docs /websites/oracle_en-us_iaas \"sign up free tier credit card required verification account\")",
+      "WebSearch",
+      "Bash(git remote *)"
     ]
   }
 }
