@@ -2,12 +2,32 @@ const fs = require('fs');
 const path = require('path');
 const simpleGit = require('simple-git');
 const { ROOT, DATA_DIR, CONTENT_DIR, UPLOADS_DIR, getPage, PAGES } = require('./pages-config');
-const { renderPage } = require('./render');
+const { renderPage, renderAll } = require('./render');
 
 const git = simpleGit(DATA_DIR);
 
 function contentPath(page) {
   return path.join(CONTENT_DIR, page.contentFile);
+}
+
+// Recursively copies any key present in `seed` but missing from `existing`
+// (already-saved content on the persistent disk), without touching values
+// Victoria has already edited. Lets new fields we add to a page's shipped
+// content JSON reach a disk that was already seeded by an earlier deploy.
+function mergeMissingKeys(existing, seed) {
+  let changed = false;
+  for (const key in seed) {
+    if (!(key in existing)) {
+      existing[key] = seed[key];
+      changed = true;
+    } else if (
+      seed[key] && typeof seed[key] === 'object' && !Array.isArray(seed[key]) &&
+      existing[key] && typeof existing[key] === 'object' && !Array.isArray(existing[key])
+    ) {
+      if (mergeMissingKeys(existing[key], seed[key])) changed = true;
+    }
+  }
+  return changed;
 }
 
 // First boot on a fresh persistent disk: DATA_DIR won't have content/uploads/a
@@ -22,19 +42,21 @@ async function ensureDataDir() {
   // until it's explicitly marked safe. Must happen before any other git call.
   await git.raw(['config', '--global', '--add', 'safe.directory', DATA_DIR]).catch(() => {});
 
-  if (DATA_DIR !== ROOT) {
-    const seedContentDir = path.join(ROOT, 'content');
-    for (const page of PAGES) {
-      const dest = path.join(CONTENT_DIR, page.contentFile);
-      const src = path.join(seedContentDir, page.contentFile);
-      if (!fs.existsSync(dest) && fs.existsSync(src)) {
-        fs.copyFileSync(src, dest);
-      }
+  const seedContentDir = path.join(ROOT, 'content');
+  for (const page of PAGES) {
+    const dest = path.join(CONTENT_DIR, page.contentFile);
+    const src = path.join(seedContentDir, page.contentFile);
+    if (!fs.existsSync(src)) continue;
+    if (!fs.existsSync(dest)) {
+      fs.copyFileSync(src, dest);
+      continue;
     }
-    const sharedDest = path.join(CONTENT_DIR, 'shared.json');
-    const sharedSrc = path.join(seedContentDir, 'shared.json');
-    if (!fs.existsSync(sharedDest) && fs.existsSync(sharedSrc)) {
-      fs.copyFileSync(sharedSrc, sharedDest);
+    // Dest already exists from an earlier deploy — backfill any fields that
+    // were added to the shipped content since then, leaving edited ones alone.
+    const existing = JSON.parse(fs.readFileSync(dest, 'utf8'));
+    const seed = JSON.parse(fs.readFileSync(src, 'utf8'));
+    if (mergeMissingKeys(existing, seed)) {
+      fs.writeFileSync(dest, JSON.stringify(existing, null, 2));
     }
   }
 
@@ -70,7 +92,14 @@ async function saveContent(pageKey, newContent, actor) {
   if (!page) throw new Error(`Unknown page: ${pageKey}`);
 
   fs.writeFileSync(contentPath(page), JSON.stringify(newContent, null, 2));
-  renderPage(pageKey);
+  // shared.json has no template/output of its own — it's mixed into every
+  // page's render, so a change to it has to re-render everything, not just
+  // "itself" (renderPage would fail: there's no shared.hbs / shared.html).
+  if (pageKey === 'shared') {
+    renderAll();
+  } else {
+    renderPage(pageKey);
+  }
 
   const relContent = path.relative(DATA_DIR, contentPath(page));
   await git.add([relContent]);
@@ -93,7 +122,11 @@ async function revertTo(pageKey, hash) {
 
   // Restore the content JSON from the chosen commit, then re-render and commit the revert as a new commit (never rewrites history).
   await git.raw(['checkout', hash, '--', relContent]);
-  renderPage(pageKey);
+  if (pageKey === 'shared') {
+    renderAll();
+  } else {
+    renderPage(pageKey);
+  }
   await git.add([relContent]);
   await git.commit(`Revert ${page.label} to ${hash.slice(0, 7)}`);
 }

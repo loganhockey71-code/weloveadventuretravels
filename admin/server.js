@@ -120,7 +120,7 @@ app.post('/admin/deploy', requireAuth, async (req, res) => {
 
 // ---------- Public site (static) ----------
 
-const ROOT_FILES = new Set(PAGES.map((p) => p.outputFile).concat(['logo.png']));
+const ROOT_FILES = new Set(PAGES.map((p) => p.outputFile).filter(Boolean).concat(['logo.png']));
 
 app.get('/', (req, res) => res.sendFile(path.join(ROOT, 'index.html')));
 app.get('/:file', (req, res, next) => {

@@ -26,6 +26,7 @@ function renderPage(key) {
   registerPartials();
   const page = getPage(key);
   if (!page) throw new Error(`Unknown page: ${key}`);
+  if (!page.templateFile) throw new Error(`Page "${key}" has no template of its own — did you mean renderAll()?`);
 
   const shared = readJSON(path.join(CONTENT_DIR, 'shared.json'));
   const content = readJSON(path.join(CONTENT_DIR, page.contentFile));
@@ -44,7 +45,7 @@ function renderPage(key) {
 }
 
 function renderAll() {
-  return PAGES.map((p) => renderPage(p.key));
+  return PAGES.filter((p) => p.templateFile).map((p) => renderPage(p.key));
 }
 
 if (require.main === module) {

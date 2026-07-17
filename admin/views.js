@@ -69,7 +69,7 @@ function dashboardPage({ pages, netlifyConfigured, flash }) {
     <div class="page-row">
       <div>
         <h3>${p.label}</h3>
-        <span class="muted">${p.outputFile}</span>
+        <span class="muted">${p.outputFile || p.note || ''}</span>
       </div>
       <div class="page-row-actions">
         <a href="/admin/edit/${p.key}" class="btn btn-small">Edit</a>

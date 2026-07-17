@@ -134,6 +134,8 @@ ul { list-style: none; }
 .btn-outline-orange:hover { background: var(--orange); color: #fff; }
 .btn-outline-green { background: transparent; color: var(--green); border-color: var(--green); }
 .btn-outline-green:hover { background: var(--green); color: #fff; }
+.btn-outline-purple { background: transparent; color: var(--purple); border-color: var(--purple); }
+.btn-outline-purple:hover { background: var(--purple); color: #fff; }
 
 /* ===========================
    SECTION BASE

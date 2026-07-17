@@ -37,7 +37,12 @@
           </div>
           {{/each}}
         </div>
-        <a href="contact.html" class="btn btn-{{section1.ctaColor}}">{{section1.ctaText}}</a>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-{{section1.ctaColor}}">{{section1.ctaText}}</a>
+          {{#if section1.websiteUrl}}
+          <a href="{{section1.websiteUrl}}" class="btn btn-outline-purple" target="_blank" rel="noopener">Find More Information</a>
+          {{/if}}
+        </div>
       </div>
     </div>
   </div>

@@ -26,7 +26,8 @@
       { "text": "Disney Cruise Line packages" }
     ],
     "ctaText": "Plan Your Disney Trip",
-    "ctaColor": "purple"
+    "ctaColor": "purple",
+    "websiteUrl": ""
   },
   "section2": {
     "eyebrow": "Wizards Welcome",

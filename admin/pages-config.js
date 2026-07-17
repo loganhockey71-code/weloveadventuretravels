@@ -16,6 +16,10 @@ const PAGES = [
   { key: 'all-inclusive', label: 'All-Inclusive', contentFile: 'all-inclusive.json', templateFile: 'all-inclusive.hbs', outputFile: 'all-inclusive.html' },
   { key: 'special-offers', label: 'Special Offers', contentFile: 'special-offers.json', templateFile: 'special-offers.hbs', outputFile: 'special-offers.html' },
   { key: 'contact', label: 'Contact', contentFile: 'contact.json', templateFile: 'contact.hbs', outputFile: 'contact.html' },
+  // No template/output of its own — this is the footer & site-wide info (phone,
+  // email, Instagram, copyright) that every page's template pulls in via the
+  // `shared` partial data. Saving it re-renders every page, not just one.
+  { key: 'shared', label: 'Footer & Site-Wide Info', contentFile: 'shared.json', templateFile: null, outputFile: null, note: 'Used in the footer of every page' },
 ];
 
 function getPage(key) {
