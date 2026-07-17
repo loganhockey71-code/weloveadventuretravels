@@ -156,7 +156,22 @@ textarea { resize: vertical; min-height: 5.5rem; }
   text-align: center;
 }
 .image-field-preview img { max-width: 100%; max-height: 160px; border-radius: 6px; display: inline-block; }
-.image-field-status { font-size: .8rem; margin-top: .35rem; }
+.image-field-status { font-size: .8rem; margin: .35rem 0; }
 .image-field-status.ok { color: var(--a-success-text); }
 .image-field-status.error { color: var(--a-error-text); }
 .image-field-status.checking { color: var(--a-muted); }
+
+.image-field-panel {
+  margin-top: .6rem;
+  padding: 1rem;
+  border: 1px dashed var(--a-border);
+  border-radius: 8px;
+  background: #fdfcfb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+}
+.image-field-or { font-size: .75rem; font-weight: 600; color: var(--a-muted); text-transform: uppercase; letter-spacing: .04em; }
+.image-field-link-row { display: flex; gap: .5rem; width: 100%; }
+.image-field-link-row input { flex: 1; }

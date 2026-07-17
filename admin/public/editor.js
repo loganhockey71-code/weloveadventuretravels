@@ -99,27 +99,48 @@
     const wrap = el('div', { class: 'field-row' });
     wrap.appendChild(el('label', { class: 'field-label', text: labelize(key) }));
 
-    const current = getAt(state, path) || '';
     const preview = el('div', { class: 'image-field-preview' });
     const img = el('img', {});
     preview.appendChild(img);
-    preview.style.display = current ? '' : 'none';
+    preview.style.display = 'none';
 
-    const input = el('input', { type: 'text', placeholder: 'Paste an image link (https://example.com/photo.jpg)' });
-    input.value = current;
     const status = el('div', { class: 'image-field-status' });
+    const changeBtn = el('button', { type: 'button', class: 'btn btn-small btn-outline' });
 
-    // Tests the link the same way a visitor's browser would, so a dead or
-    // typo'd link is caught here instead of showing up broken on the live site.
-    function checkImage(url) {
+    const panel = el('div', { class: 'image-field-panel' });
+    panel.style.display = 'none';
+
+    const uploadBtn = el('button', { type: 'button', class: 'btn btn-small', text: 'Upload a Photo' });
+    const fileInput = el('input', { type: 'file', accept: 'image/jpeg,image/png,image/webp,image/gif' });
+    fileInput.style.display = 'none';
+
+    const linkRow = el('div', { class: 'image-field-link-row' });
+    const linkInput = el('input', { type: 'text', placeholder: 'Paste an image link (https://example.com/photo.jpg)' });
+    const useLinkBtn = el('button', { type: 'button', class: 'btn btn-small btn-outline', text: 'Use Link' });
+    linkRow.appendChild(linkInput);
+    linkRow.appendChild(useLinkBtn);
+
+    panel.appendChild(uploadBtn);
+    panel.appendChild(fileInput);
+    panel.appendChild(el('div', { class: 'image-field-or', text: 'or' }));
+    panel.appendChild(linkRow);
+
+    function openPanel(open) {
+      panel.style.display = open ? '' : 'none';
+    }
+
+    // Tests the link/uploaded file the same way a visitor's browser would, so a
+    // dead or typo'd link is caught here instead of showing up broken on the live site.
+    function setImage(url) {
+      setAt(state, path, url);
       if (!url) {
         preview.style.display = 'none';
         status.textContent = '';
         status.className = 'image-field-status';
+        changeBtn.textContent = 'Add Image';
         return;
       }
-      preview.style.display = 'none';
-      status.textContent = 'Checking link…';
+      status.textContent = 'Checking image…';
       status.className = 'image-field-status checking';
       const test = new Image();
       test.onload = () => {
@@ -127,6 +148,8 @@
         preview.style.display = '';
         status.textContent = 'Looks good — image loads.';
         status.className = 'image-field-status ok';
+        changeBtn.textContent = 'Change Image';
+        openPanel(false);
       };
       test.onerror = () => {
         status.textContent = "This link doesn't load as an image — double-check it and try again.";
@@ -135,13 +158,45 @@
       test.src = url;
     }
 
-    input.addEventListener('input', () => setAt(state, path, input.value.trim()));
-    input.addEventListener('change', () => checkImage(input.value.trim()));
-    checkImage(current);
+    changeBtn.addEventListener('click', () => {
+      linkInput.value = getAt(state, path) || '';
+      openPanel(panel.style.display === 'none');
+    });
+
+    uploadBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      status.textContent = 'Uploading…';
+      status.className = 'image-field-status checking';
+      const fd = new FormData();
+      fd.append('image', file);
+      try {
+        const res = await fetch('/admin/upload', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Upload failed');
+        setImage(data.url);
+      } catch (err) {
+        status.textContent = 'Upload failed: ' + err.message;
+        status.className = 'image-field-status error';
+      } finally {
+        fileInput.value = '';
+      }
+    });
+
+    useLinkBtn.addEventListener('click', () => setImage(linkInput.value.trim()));
+    linkInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); setImage(linkInput.value.trim()); }
+    });
+
+    const current = getAt(state, path) || '';
+    changeBtn.textContent = current ? 'Change Image' : 'Add Image';
+    if (current) setImage(current);
 
     wrap.appendChild(preview);
-    wrap.appendChild(input);
     wrap.appendChild(status);
+    wrap.appendChild(changeBtn);
+    wrap.appendChild(panel);
     return wrap;
   }
 

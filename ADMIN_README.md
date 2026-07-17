@@ -39,9 +39,10 @@ your laptop) so the admin panel is reachable whenever Victoria wants to log in.
   Any version can be restored with one click — nothing is ever permanently lost.
 - **Publish**: the admin dashboard has a "Publish to Live Site" button that
   pushes the current pages to Netlify directly (see NETLIFY_SETUP.md).
-- Images are set by pasting a direct image link (URL) into a field —
-  the editor checks that the link actually loads an image before you save,
-  and shows a preview.
+- Each image field shows an "Add Image" / "Change Image" button. Clicking it
+  offers two ways to set the image: upload a photo from your device, or paste
+  a direct image link (URL). Either way, the editor checks that the result
+  actually loads as an image before you save, and shows a preview.
 
 ## What Victoria can and can't do
 
