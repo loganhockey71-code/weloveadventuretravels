@@ -98,43 +98,50 @@
   function buildImageField(key, path) {
     const wrap = el('div', { class: 'field-row' });
     wrap.appendChild(el('label', { class: 'field-label', text: labelize(key) }));
-    const dz = el('div', { class: 'dropzone' });
-    const img = el('img', { src: getAt(state, path) || '', style: getAt(state, path) ? '' : 'display:none' });
-    const hint = el('div', { class: 'dz-hint', text: 'Drag an image here, or click to choose one' });
-    const fileInput = el('input', { type: 'file', accept: 'image/jpeg,image/png,image/webp,image/gif' });
-    dz.appendChild(img);
-    dz.appendChild(hint);
-    dz.appendChild(fileInput);
 
-    async function handleFile(file) {
-      if (!file) return;
-      hint.textContent = 'Uploading…';
-      const fd = new FormData();
-      fd.append('image', file);
-      try {
-        const res = await fetch('/admin/upload', { method: 'POST', body: fd });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Upload failed');
-        setAt(state, path, data.url);
-        img.src = data.url;
-        img.style.display = '';
-        hint.textContent = 'Drag an image here, or click to choose another';
-      } catch (err) {
-        hint.textContent = 'Upload failed: ' + err.message;
+    const current = getAt(state, path) || '';
+    const preview = el('div', { class: 'image-field-preview' });
+    const img = el('img', {});
+    preview.appendChild(img);
+    preview.style.display = current ? '' : 'none';
+
+    const input = el('input', { type: 'text', placeholder: 'Paste an image link (https://example.com/photo.jpg)' });
+    input.value = current;
+    const status = el('div', { class: 'image-field-status' });
+
+    // Tests the link the same way a visitor's browser would, so a dead or
+    // typo'd link is caught here instead of showing up broken on the live site.
+    function checkImage(url) {
+      if (!url) {
+        preview.style.display = 'none';
+        status.textContent = '';
+        status.className = 'image-field-status';
+        return;
       }
+      preview.style.display = 'none';
+      status.textContent = 'Checking link…';
+      status.className = 'image-field-status checking';
+      const test = new Image();
+      test.onload = () => {
+        img.src = url;
+        preview.style.display = '';
+        status.textContent = 'Looks good — image loads.';
+        status.className = 'image-field-status ok';
+      };
+      test.onerror = () => {
+        status.textContent = "This link doesn't load as an image — double-check it and try again.";
+        status.className = 'image-field-status error';
+      };
+      test.src = url;
     }
 
-    dz.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
-    dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragover'); });
-    dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
-    dz.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dz.classList.remove('dragover');
-      handleFile(e.dataTransfer.files[0]);
-    });
+    input.addEventListener('input', () => setAt(state, path, input.value.trim()));
+    input.addEventListener('change', () => checkImage(input.value.trim()));
+    checkImage(current);
 
-    wrap.appendChild(dz);
+    wrap.appendChild(preview);
+    wrap.appendChild(input);
+    wrap.appendChild(status);
     return wrap;
   }
 

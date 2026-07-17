@@ -147,16 +147,16 @@ textarea { resize: vertical; min-height: 5.5rem; }
 .string-list-item { display: flex; gap: .5rem; margin-bottom: .5rem; align-items: center; }
 .string-list-item input { flex: 1; }
 
-.dropzone {
-  border: 2px dashed var(--a-border);
+.image-field-preview {
+  border: 1px solid var(--a-border);
   border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  cursor: pointer;
+  padding: .75rem;
   background: #fdfcfb;
-  transition: border-color .15s, background .15s;
+  margin-bottom: .5rem;
+  text-align: center;
 }
-.dropzone.dragover { border-color: var(--a-accent); background: #fff4ef; }
-.dropzone img { max-width: 100%; max-height: 160px; border-radius: 6px; display: block; margin: 0 auto .5rem; }
-.dropzone .dz-hint { font-size: .8rem; color: var(--a-muted); }
-.dropzone input[type="file"] { display: none; }
+.image-field-preview img { max-width: 100%; max-height: 160px; border-radius: 6px; display: inline-block; }
+.image-field-status { font-size: .8rem; margin-top: .35rem; }
+.image-field-status.ok { color: var(--a-success-text); }
+.image-field-status.error { color: var(--a-error-text); }
+.image-field-status.checking { color: var(--a-muted); }

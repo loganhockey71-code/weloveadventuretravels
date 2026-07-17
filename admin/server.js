@@ -6,7 +6,6 @@ const session = require('express-session');
 const { ROOT, UPLOADS_DIR, PAGES, getPage } = require('./pages-config');
 const { hasAdminAccount, verifyLogin, requireAuth, loginLimiter } = require('./auth');
 const { readContent, saveContent, listHistory, revertTo, ensureDataDir } = require('./content-store');
-const { upload } = require('./upload');
 const netlify = require('./netlify-deploy');
 const views = require('./views');
 const { renderAll } = require('./render');
@@ -79,15 +78,6 @@ app.post('/admin/edit/:page', requireAuth, async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'Could not save changes. Nothing was overwritten — try again.' });
   }
-});
-
-app.post('/admin/upload', requireAuth, (req, res) => {
-  upload.single('image')(req, res, (err) => {
-    if (err) return res.status(400).json({ error: err.message });
-    if (!req.file) return res.status(400).json({ error: 'No image received.' });
-    // Root-relative so it resolves correctly both on the live site and inside nested /admin/edit/* preview pages.
-    res.json({ url: '/uploads/' + req.file.filename });
-  });
 });
 
 app.get('/admin/history/:page', requireAuth, async (req, res) => {
