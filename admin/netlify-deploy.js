@@ -5,7 +5,7 @@ const { ROOT, UPLOADS_DIR } = require('./pages-config');
 
 // Everything a visitor's browser needs — the rendered pages plus static assets. Excludes
 // the admin app, source templates/content, and anything else that shouldn't be public.
-const SITE_FILES = ['index.html', 'cruises.html', 'theme-parks.html', 'all-inclusive.html', 'special-offers.html', 'contact.html', 'logo.png'];
+const SITE_FILES = ['index.html', 'cruises.html', 'theme-parks.html', 'all-inclusive.html', 'special-offers.html', 'contact.html', 'terms.html', 'logo.png'];
 const SITE_DIRS = ['css', 'js'];
 
 function isConfigured() {

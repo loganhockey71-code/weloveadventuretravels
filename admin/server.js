@@ -120,7 +120,9 @@ app.post('/admin/deploy', requireAuth, async (req, res) => {
 
 // ---------- Public site (static) ----------
 
-const ROOT_FILES = new Set(PAGES.map((p) => p.outputFile).filter(Boolean).concat(['logo.png']));
+// terms.html is a static legal page, not managed through the admin content editor —
+// listed here directly (not in PAGES) so Victoria can't accidentally edit it there.
+const ROOT_FILES = new Set(PAGES.map((p) => p.outputFile).filter(Boolean).concat(['logo.png', 'terms.html']));
 
 app.get('/', (req, res) => res.sendFile(path.join(ROOT, 'index.html')));
 app.get('/:file', (req, res, next) => {
